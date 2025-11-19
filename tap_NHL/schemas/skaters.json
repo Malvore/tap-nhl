@@ -1,0 +1,944 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "playerId": {
+      "type": "integer"
+    },
+    "isActive": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "currentTeamId": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "currentTeamAbbrev": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fullTeamName": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "teamCommonName": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "teamPlaceNameWithPreposition": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "firstName": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "lastName": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "badges": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "logoUrl": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "title": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "teamLogo": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sweaterNumber": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "position": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "headshot": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "heroImage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "heightInInches": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "heightInCentimeters": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "weightInPounds": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "weightInKilograms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "birthDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "birthCity": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "birthStateProvince": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "birthCountry": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "shootsCatches": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "draftDetails": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "teamAbbrev": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "round": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "pickInRound": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "overallPick": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "playerSlug": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inTop100AllTime": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "inHHOF": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "featuredStats": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "season": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "regularSeason": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "subSeason": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "assists": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "gameWinningGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "gamesPlayed": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "goals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "otGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "pim": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "plusMinus": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "points": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "powerPlayGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "powerPlayPoints": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shootingPctg": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shorthandedGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shorthandedPoints": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shots": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            },
+            "career": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "assists": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "gameWinningGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "gamesPlayed": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "goals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "otGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "pim": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "plusMinus": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "points": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "powerPlayGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "powerPlayPoints": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shootingPctg": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shorthandedGoals": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shorthandedPoints": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "shots": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "careerTotals": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "regularSeason": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "assists": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "avgToi": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "faceoffWinningPctg": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "gameWinningGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "gamesPlayed": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "goals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "otGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "pim": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "plusMinus": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "points": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "powerPlayGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "powerPlayPoints": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shootingPctg": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shorthandedGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shorthandedPoints": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shots": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "playoffs": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "assists": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "avgToi": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "faceoffWinningPctg": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "gameWinningGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "gamesPlayed": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "goals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "otGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "pim": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "plusMinus": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "points": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "powerPlayGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "powerPlayPoints": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shootingPctg": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shorthandedGoals": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shorthandedPoints": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "shots": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "shopLink": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "twitterLink": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "watchLink": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last5Games": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "assists": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "gameDate": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "gameId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "gameTypeId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "goals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "homeRoadFlag": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "opponentAbbrev": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pim": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "plusMinus": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "points": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "powerPlayGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shorthandedGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shots": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "teamAbbrev": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "toi": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "seasonTotals": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "assists": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "gameTypeId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "gamesPlayed": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "goals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "leagueAbbrev": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pim": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "points": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "powerPlayGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sequence": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "season": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "shorthandedGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shorthandedPoints": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "teamName": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "teamCommonName": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}

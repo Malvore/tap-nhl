@@ -1,0 +1,59 @@
+version: 1
+project_id: tap-nhl
+default_environment: dev
+environments:
+- name: dev
+
+plugins:
+  extractors:
+  - name: tap-nhl
+    namespace: tap_nhl
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    - about
+    - stream-maps
+
+    settings:
+    - name: api_url
+      kind: string
+      label: API URL
+      description: The base URL for the NHL Stats API
+    - name: skater_ids
+      kind: array
+      label: Skater IDs
+      description: Optional override list of NHL skater IDs (leave empty to load all)
+    - name: goalie_ids
+      kind: array
+      label: Goalie IDs
+      description: Optional override list of NHL goalie IDs (leave empty to load all)
+    - name: player_ids
+      kind: array
+      label: Player IDs (deprecated)
+      description: Backward-compatible alias for skater_ids
+
+    config:
+      api_url: https://api-web.nhle.com
+      skater_ids: []
+      goalie_ids: []
+      player_ids: []
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/target-postgres.git@main
+    config:
+      validate_records: false
+      host: ${TARGET_POSTGRES_HOST}
+      port: ${TARGET_POSTGRES_PORT}
+      user: ${TARGET_POSTGRES_USER}
+      password: ${TARGET_POSTGRES_PASSWORD}
+      database: ${TARGET_POSTGRES_DATABASE}
+      
+      flattening_enabled: true
+      flattening_max_depth: 10
