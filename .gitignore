@@ -145,3 +145,5 @@ config.json
 
 # Ignore plugins
 
+# Ignore vscode settings
+.vscode/
