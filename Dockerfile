@@ -18,4 +18,4 @@ RUN meltano install
 ENV MELTANO_PROJECT_READONLY=1
 
 ENTRYPOINT ["meltano"]
-CMD ["run", "tap-nhl", "target-postgres"]
+CMD ["run", "--full-refresh", "tap-nhl", "target-postgres"]

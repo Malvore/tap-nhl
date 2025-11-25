@@ -14,5 +14,5 @@ PLAYER_DISCOVERY_MAX_RETRIES = 5
 #   through PLAYER_DISCOVERY_SEASON_END (inclusive). Set the end to None to include
 #   every season up to the current one.
 PLAYER_DISCOVERY_SEASONS: list[int] = []
-PLAYER_DISCOVERY_SEASON_START = 1917  # first NHL season
+PLAYER_DISCOVERY_SEASON_START = 1917  # 1917 is the first NHL season.
 PLAYER_DISCOVERY_SEASON_END: int | None = None    # None: Includes records through the current season.
