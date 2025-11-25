@@ -15,6 +15,7 @@ A Singer tap for extracting player landing data from the public NHL Stats API us
 
 ### Prerequisites
 
+- Linux or WSL2 host
 - Python 3.12+
 - [uv](https://github.com/astral-sh/uv) (Python package/env manager)
 - [Meltano](https://meltano.com) if you plan to orchestrate ELT pipelines
@@ -180,7 +181,7 @@ SELECT * FROM tap_nhl.skaters LIMIT 5;
 
 ### 4. Optional: Dockerize the project
 
-If you want to ship your Meltano pipeline in a container, add the Meltano Docker bundle (`meltano add files files-docker`) and build a simple image:
+If you want to ship your Meltano pipeline in a container, there is a simple image in the root directory. This image installs basic tools (jq/curl/ping), and is set to perform a full table load each run:
 
 ```dockerfile
 FROM meltano/meltano:latest-python3.12
@@ -190,20 +191,20 @@ COPY . .
 RUN meltano install
 ENV MELTANO_PROJECT_READONLY=1
 ENTRYPOINT ["meltano"]
-CMD ["run", "tap-nhl", "target-postgres"]
+CMD ["run", "--full-refresh", "tap-nhl", "target-postgres"]
 ```
 
 Build and run:
 
 ```bash
-docker build -t tap-nhl-pipeline .
+docker build -t tap-nhl:latest .
 docker run --rm --network host \
   -e TARGET_POSTGRES_HOST=127.0.0.1 \
   -e TARGET_POSTGRES_PORT=5432 \
   -e TARGET_POSTGRES_USER=meltano \
   -e TARGET_POSTGRES_PASSWORD=meltanopassword \
   -e TARGET_POSTGRES_DATABASE=meltano_database \
-  tap-nhl-pipeline
+  tap-nhl:latest
 ```
 
 ---
