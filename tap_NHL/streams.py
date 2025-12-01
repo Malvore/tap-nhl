@@ -5,7 +5,7 @@ from __future__ import annotations
 import typing as t
 from importlib import resources
 import time
-from datetime import datetime
+from datetime import UTC, datetime
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -146,15 +146,15 @@ class PlayerLandingStream(NHLStream):
         if self._season_ids is not None:
             return self._season_ids
 
-        if PLAYER_DISCOVERY_SEASONS:
-            season_ids = sorted(set(PLAYER_DISCOVERY_SEASONS))
+        discovery_seasons = (
+            self.config.get("discovery_seasons") or PLAYER_DISCOVERY_SEASONS
+        )
+        if discovery_seasons:
+            season_ids = sorted(set(discovery_seasons))
         else:
-            current_year = datetime.utcnow().year + 1
+            current_year = datetime.now(UTC).year + 1
             start_year = PLAYER_DISCOVERY_SEASON_START
             end_year = PLAYER_DISCOVERY_SEASON_END or current_year
-            if end_year < start_year:
-                msg = "PLAYER_DISCOVERY_SEASON_END must be >= PLAYER_DISCOVERY_SEASON_START."
-                raise ValueError(msg)
             season_ids = [
                 int(f"{year}{year + 1}")
                 for year in range(start_year, end_year)

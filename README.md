@@ -45,6 +45,7 @@ meltano install        # installs tap-nhl + targets listed in meltano.yml
 - `skater_ids` *(array[int], optional)* – Explicit list of skater IDs to sync. Leave empty to auto-discover every skater for the configured seasons.
 - `goalie_ids` *(array[int], optional)* – Explicit list of goalie IDs to sync.
 - `player_ids` *(array[int], optional, deprecated)* – Backward-compatible alias for `skater_ids`.
+- `discovery_seasons` *(array[int], optional)* – Explicit season IDs to use for player discovery (for example, `20232024`). These are full season IDs (year concatenated). Leave empty to scan the full range (1917 through current).
 
 Autodiscovery seasons are controlled via `tap_NHL/constants.py`. Update `PLAYER_DISCOVERY_SEASON_START`, `PLAYER_DISCOVERY_SEASON_END`, or `PLAYER_DISCOVERY_SEASONS` to shrink or expand the window once, and every run will honor that range.
 
