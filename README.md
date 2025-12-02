@@ -47,7 +47,11 @@ meltano install        # installs tap-nhl + targets listed in meltano.yml
 - `player_ids` *(array[int], optional, deprecated)* – Backward-compatible alias for `skater_ids`.
 - `discovery_seasons` *(array[int], optional)* – Explicit season IDs to use for player discovery (for example, `20232024`). These are full season IDs (year concatenated). Leave empty to scan the full range (1917 through current).
 
-Autodiscovery seasons are controlled via `tap_NHL/constants.py`. Update `PLAYER_DISCOVERY_SEASON_START`, `PLAYER_DISCOVERY_SEASON_END`, or `PLAYER_DISCOVERY_SEASONS` to shrink or expand the window once, and every run will honor that range.
+To set `discovery_seasons` via environment, add to `.env` (JSON array string) and Meltano will pick it up:
+
+```bash
+TAP_NHL_DISCOVERY_SEASONS='[20232024,20242025]'
+```
 
 Environment variables from `.env` are automatically read when you run `tap-nhl --config ENV`.
 
