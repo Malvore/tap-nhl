@@ -49,6 +49,16 @@ class TapNHL(Tap):
             ),
             default=[],
         ),
+        th.Property(
+            "discovery_seasons",
+            th.ArrayType(th.IntegerType),
+            title="Discovery season IDs",
+            description=(
+                "Explicit list of season IDs (e.g., 20232024) to use for "
+                "player discovery. Leave empty to scan all seasons."
+            ),
+            default=[],
+        ),
     ).to_dict()
 
     def discover_streams(self) -> list[streams.NHLStream]:

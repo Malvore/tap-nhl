@@ -45,8 +45,13 @@ meltano install        # installs tap-nhl + targets listed in meltano.yml
 - `skater_ids` *(array[int], optional)* – Explicit list of skater IDs to sync. Leave empty to auto-discover every skater for the configured seasons.
 - `goalie_ids` *(array[int], optional)* – Explicit list of goalie IDs to sync.
 - `player_ids` *(array[int], optional, deprecated)* – Backward-compatible alias for `skater_ids`.
+- `discovery_seasons` *(array[int], optional)* – Explicit season IDs to use for player discovery (for example, `20232024`). These are full season IDs (year concatenated). Leave empty to scan the full range (1917 through current).
 
-Autodiscovery seasons are controlled via `tap_NHL/constants.py`. Update `PLAYER_DISCOVERY_SEASON_START`, `PLAYER_DISCOVERY_SEASON_END`, or `PLAYER_DISCOVERY_SEASONS` to shrink or expand the window once, and every run will honor that range.
+To set `discovery_seasons` via environment, add to `.env` (JSON array string) and Meltano will pick it up:
+
+```bash
+TAP_NHL_DISCOVERY_SEASONS='[20232024,20242025]'
+```
 
 Environment variables from `.env` are automatically read when you run `tap-nhl --config ENV`.
 
@@ -213,6 +218,7 @@ docker run --rm --network host \
 
 The `postgres_queries/` directory contains SQL you can run against the `tap_nhl` schema to highlight skating/goalie insights. Currently available:
 
+- [`postgres_queries/health_check.sql`](postgres_queries/health_check.sql) – quick sanity checks: row counts, min/max seasons, null key checks, and oldest/newest samples per stream. Run with `psql "$TARGET_POSTGRES_DATABASE" -f postgres_queries/health_check.sql`.
 - [`postgres_queries/games_played.sql`](postgres_queries/games_played.sql) – lists the top regular-season and playoff ironmen for both skaters and goalies. Each snippet targets the flattened fields emitted by `target-postgres` (for example, `"careerTotals__regularSeason__gamesPlayed"`) and uses an adjustable `LIMIT`.
 
 Run the full script after a Meltano sync finishes:

@@ -33,12 +33,17 @@ plugins:
       kind: array
       label: Player IDs (deprecated)
       description: Backward-compatible alias for skater_ids
+    - name: discovery_seasons
+      kind: array
+      description: Explicit season IDs (e.g., '[20232024,20242025]'). Leave empty for full history.
 
     config:
       api_url: https://api-web.nhle.com
       skater_ids: []
       goalie_ids: []
       player_ids: []
+      discovery_seasons: ${TAP_NHL_DISCOVERY_SEASONS}
+
   loaders:
   - name: target-jsonl
     variant: andyh1203
