@@ -214,6 +214,7 @@ docker run --rm --network host \
 
 The `postgres_queries/` directory contains SQL you can run against the `tap_nhl` schema to highlight skating/goalie insights. Currently available:
 
+- [`postgres_queries/health_check.sql`](postgres_queries/health_check.sql) – quick sanity checks: row counts, min/max seasons, null key checks, and oldest/newest samples per stream. Run with `psql "$TARGET_POSTGRES_DATABASE" -f postgres_queries/health_check.sql`.
 - [`postgres_queries/games_played.sql`](postgres_queries/games_played.sql) – lists the top regular-season and playoff ironmen for both skaters and goalies. Each snippet targets the flattened fields emitted by `target-postgres` (for example, `"careerTotals__regularSeason__gamesPlayed"`) and uses an adjustable `LIMIT`.
 
 Run the full script after a Meltano sync finishes:
