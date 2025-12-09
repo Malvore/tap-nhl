@@ -38,7 +38,7 @@ class PlayerLandingStream(NHLStream):
     _season_ids: list[int] | None = None
     _discovery_session: requests.Session | None = None
     _last_request_ts: float | None = None
-    RATE_LIMIT_SECONDS = 0.35
+    RATE_LIMIT_SECONDS = 0.5
     LOCALE_FIELDS = [
         "fullTeamName",
         "teamCommonName",
@@ -122,6 +122,7 @@ class PlayerLandingStream(NHLStream):
                         "limit": PLAYER_DISCOVERY_PAGE_SIZE,
                         "cayenneExp": f"seasonId={season_id}",
                     }
+                    self._apply_rate_limit()
                     response = session.get(
                         endpoint,
                         params=params,
