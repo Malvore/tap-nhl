@@ -35,20 +35,25 @@ plugins:
       description: Backward-compatible alias for skater_ids
     - name: discovery_seasons
       kind: array
-      description: Explicit season IDs (e.g., '[20232024,20242025]'). Leave empty for full history.
+      description: Explicit season IDs (e.g., '[20232024,20242025]'). Leave empty
+        for full history.
 
     config:
       api_url: https://api-web.nhle.com
-      skater_ids: []
-      goalie_ids: []
+      skater_ids: ${TAP_NHL_SKATER_IDS}
+      goalie_ids: ${TAP_NHL_GOALIE_IDS}
       player_ids: []
       discovery_seasons: ${TAP_NHL_DISCOVERY_SEASONS}
+
+
+
+    select:
+    - '*.*'
 
   loaders:
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
-
   - name: target-postgres
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/target-postgres.git@main
@@ -59,6 +64,6 @@ plugins:
       user: ${TARGET_POSTGRES_USER}
       password: ${TARGET_POSTGRES_PASSWORD}
       database: ${TARGET_POSTGRES_DATABASE}
-      
+
       flattening_enabled: true
       flattening_max_depth: 10

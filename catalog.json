@@ -1030,6 +1030,12 @@
                     "null"
                   ]
                 },
+                "shifts":{
+                  "type":[
+                    "integer",
+                    "null"
+                  ]
+                },
                 "teamAbbrev":{
                   "type":[
                     "string",
@@ -1114,6 +1120,42 @@
                     "null"
                   ]
                 },
+                "gameWinningGoals":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "plusMinus":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "shootingPctg":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "shots":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "avgToi":{
+                  "type":[
+                    "string",
+                    "null"
+                  ]
+                },
+                "faceoffWinningPctg":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
                 "leagueAbbrev":{
                   "type":[
                     "string",
@@ -1133,6 +1175,12 @@
                   ]
                 },
                 "powerPlayGoals":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "powerPlayPoints":{
                   "type":[
                     "number",
                     "null"
@@ -1162,7 +1210,26 @@
                     "null"
                   ]
                 },
+                "otGoals":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
                 "teamName":{
+                  "type":[
+                    "string",
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties":{
+                    "type":[
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "teamPlaceNameWithPreposition":{
                   "type":[
                     "string",
                     "object",
@@ -1187,6 +1254,54 @@
                       "null"
                     ]
                   }
+                },
+                "featuredStats":{
+                  "properties":{
+                    "regularSeason":{
+                      "properties":{
+                        "subSeason":{
+                          "properties":{
+                            "ties":{
+                              "type":[
+                                "number",
+                                "null"
+                              ]
+                            }
+                          },
+                          "type":[
+                            "object",
+                            "null"
+                          ],
+                          "additionalProperties":true
+                        },
+                        "career":{
+                          "properties":{
+                            "ties":{
+                              "type":[
+                                "number",
+                                "null"
+                              ]
+                            }
+                          },
+                          "type":[
+                            "object",
+                            "null"
+                          ],
+                          "additionalProperties":true
+                        }
+                      },
+                      "type":[
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties":true
+                    }
+                  },
+                  "type":[
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties":true
                 },
                 "gamesStarted":{
                   "type":[
@@ -2418,6 +2533,12 @@
                     "null"
                   ]
                 },
+                "shifts":{
+                  "type":[
+                    "integer",
+                    "null"
+                  ]
+                },
                 "teamAbbrev":{
                   "type":[
                     "string",
@@ -2466,6 +2587,42 @@
                     "null"
                   ]
                 },
+                "gameWinningGoals":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "plusMinus":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "shootingPctg":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "shots":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "avgToi":{
+                  "type":[
+                    "string",
+                    "null"
+                  ]
+                },
+                "faceoffWinningPctg":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
                 "leagueAbbrev":{
                   "type":[
                     "string",
@@ -2485,6 +2642,12 @@
                   ]
                 },
                 "powerPlayGoals":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
+                "powerPlayPoints":{
                   "type":[
                     "number",
                     "null"
@@ -2514,7 +2677,26 @@
                     "null"
                   ]
                 },
+                "otGoals":{
+                  "type":[
+                    "number",
+                    "null"
+                  ]
+                },
                 "teamName":{
+                  "type":[
+                    "string",
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties":{
+                    "type":[
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "teamPlaceNameWithPreposition":{
                   "type":[
                     "string",
                     "object",

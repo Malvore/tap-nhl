@@ -14,6 +14,7 @@ from urllib3.util import Retry
 from tap_NHL.client import NHLStream
 from tap_NHL.constants import (
     GOALIE_DISCOVERY_ENDPOINT,
+    PLAYERS_DISCOVERY_ENDPOINT,
     PLAYER_DISCOVERY_MAX_RETRIES,
     PLAYER_DISCOVERY_PAGE_SIZE,
     PLAYER_DISCOVERY_SEASON_END,
@@ -111,6 +112,12 @@ class PlayerLandingStream(NHLStream):
             msg = "discovery_endpoints must be defined on PlayerLandingStream subclasses."
             raise ValueError(msg)
         endpoints = self.discovery_endpoints
+
+        # Seed with all players from the players endpoint (unfiltered by season)
+        player_ids.update(self._fetch_player_ids_via_players_endpoint(session))
+        self.logger.info("Fetched %d player IDs from /players fallback", len(player_ids))
+
+        # Then merge in IDs from the per-season summary endpoints
         for season_id in self._fetch_season_ids():
             for endpoint in endpoints:
                 start = 0
@@ -163,6 +170,47 @@ class PlayerLandingStream(NHLStream):
 
         self._season_ids = season_ids
         return season_ids
+
+    def _fetch_player_ids_via_players_endpoint(
+        self,
+        session: requests.Session,
+    ) -> set[int]:
+        """Fetch player IDs from the players endpoint as a fallback."""
+        ids: set[int] = set()
+        start = 0
+        while True:
+            params = {
+                "start": start,
+                # Use -1 to fetch all players in one call; the endpoint ignores season filters.
+                "limit": -1,
+            }
+            self._apply_rate_limit()
+            try:
+                response = session.get(
+                    PLAYERS_DISCOVERY_ENDPOINT,
+                    params=params,
+                    timeout=PLAYER_DISCOVERY_TIMEOUT,
+                )
+                response.raise_for_status()
+            except requests.HTTPError as exc:  # noqa: PERF203
+                self.logger.warning(
+                    "Players endpoint fallback failed: %s",
+                    exc,
+                )
+                break
+
+            payload = response.json()
+            data = payload.get("data") or []
+            for row in data:
+                player_id = row.get("id")
+                if player_id is not None:
+                    ids.add(int(player_id))
+            total = payload.get("total") or 0
+            start += PLAYER_DISCOVERY_PAGE_SIZE
+            if start >= total or not data:
+                break
+
+        return ids
 
     def _get_discovery_session(self) -> requests.Session:
         """Create or return a session with retry/backoff for discovery calls."""

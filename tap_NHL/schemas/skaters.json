@@ -814,6 +814,12 @@
               "null"
             ]
           },
+          "shifts": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "teamAbbrev": {
             "type": [
               "string",
@@ -862,6 +868,42 @@
               "null"
             ]
           },
+          "gameWinningGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "plusMinus": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shootingPctg": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shots": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "avgToi": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "faceoffWinningPctg": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
           "leagueAbbrev": {
             "type": [
               "string",
@@ -881,6 +923,12 @@
             ]
           },
           "powerPlayGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "powerPlayPoints": {
             "type": [
               "number",
               "null"
@@ -910,7 +958,32 @@
               "null"
             ]
           },
+          "otGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shots": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
           "teamName": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "teamPlaceNameWithPreposition": {
             "type": [
               "string",
               "object",
@@ -936,9 +1009,32 @@
               ]
             }
           }
+      },
+      "additionalProperties": true
+    },
+    "currentTeamRoster": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "playerId": { "type": ["integer", "null"] },
+          "lastName": { "type": ["string", "object", "null"], "additionalProperties": { "type": ["string", "null"] } },
+          "firstName": { "type": ["string", "object", "null"], "additionalProperties": { "type": ["string", "null"] } },
+          "playerSlug": { "type": ["string", "null"] }
         },
         "additionalProperties": true
-      }
+      },
+      "additionalProperties": true
+    },
+    "player_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
     }
   }
+}
 }
