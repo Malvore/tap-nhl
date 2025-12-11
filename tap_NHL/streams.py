@@ -171,8 +171,9 @@ class PlayerLandingStream(NHLStream):
                 total=PLAYER_DISCOVERY_MAX_RETRIES,
                 read=PLAYER_DISCOVERY_MAX_RETRIES,
                 connect=PLAYER_DISCOVERY_MAX_RETRIES,
-                backoff_factor=2,
+                backoff_factor=4,
                 status_forcelist=[429, 500, 502, 503, 504],
+                respect_retry_after_header=True,
             )
             adapter = HTTPAdapter(max_retries=retry)
             session = requests.Session()
