@@ -35,7 +35,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "teamCommonName": {
       "type": [
@@ -48,7 +49,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "teamPlaceNameWithPreposition": {
       "type": [
@@ -61,7 +63,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "firstName": {
       "type": [
@@ -74,7 +77,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "lastName": {
       "type": [
@@ -87,7 +91,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "badges": {
       "type": [
@@ -107,7 +112,8 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
           },
           "title": {
             "type": [
@@ -119,7 +125,8 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
           }
         },
         "additionalProperties": true
@@ -197,7 +204,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "birthStateProvince": {
       "type": [
@@ -210,7 +218,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "birthCountry": {
       "type": [
@@ -388,6 +397,12 @@
                     "number",
                     "null"
                   ]
+                },
+                "ties": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
                 }
               },
               "additionalProperties": true
@@ -477,6 +492,12 @@
                   ]
                 },
                 "shots": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "ties": {
                   "type": [
                     "number",
                     "null"
@@ -886,12 +907,6 @@
               "null"
             ]
           },
-          "shots": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
           "avgToi": {
             "type": [
               "string",
@@ -958,13 +973,13 @@
               "null"
             ]
           },
-          "otGoals": {
+          "shots": {
             "type": [
               "number",
               "null"
             ]
           },
-          "shots": {
+          "otGoals": {
             "type": [
               "number",
               "null"
@@ -981,7 +996,8 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
           },
           "teamPlaceNameWithPreposition": {
             "type": [
@@ -994,7 +1010,8 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
           },
           "teamCommonName": {
             "type": [
@@ -1007,10 +1024,12 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
           }
-      },
-      "additionalProperties": true
+        },
+        "additionalProperties": true
+      }
     },
     "currentTeamRoster": {
       "type": [
@@ -1020,10 +1039,46 @@
       "items": {
         "type": "object",
         "properties": {
-          "playerId": { "type": ["integer", "null"] },
-          "lastName": { "type": ["string", "object", "null"], "additionalProperties": { "type": ["string", "null"] } },
-          "firstName": { "type": ["string", "object", "null"], "additionalProperties": { "type": ["string", "null"] } },
-          "playerSlug": { "type": ["string", "null"] }
+          "playerId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "lastName": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "properties": {}
+          },
+          "firstName": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "properties": {}
+          },
+          "playerSlug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         },
         "additionalProperties": true
       },
@@ -1036,5 +1091,4 @@
       ]
     }
   }
-}
 }
