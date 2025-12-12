@@ -35,7 +35,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "teamCommonName": {
       "type": [
@@ -48,7 +49,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "teamPlaceNameWithPreposition": {
       "type": [
@@ -61,7 +63,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "firstName": {
       "type": [
@@ -74,7 +77,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "lastName": {
       "type": [
@@ -87,7 +91,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "badges": {
       "type": [
@@ -107,7 +112,8 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
           },
           "title": {
             "type": [
@@ -119,7 +125,8 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
           }
         },
         "additionalProperties": true
@@ -197,7 +204,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "birthStateProvince": {
       "type": [
@@ -210,7 +218,8 @@
           "string",
           "null"
         ]
-      }
+      },
+      "properties": {}
     },
     "birthCountry": {
       "type": [
@@ -424,6 +433,12 @@
                     "number",
                     "null"
                   ]
+                },
+                "ties": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
                 }
               },
               "additionalProperties": true
@@ -549,6 +564,12 @@
                   ]
                 },
                 "wins": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "ties": {
                   "type": [
                     "number",
                     "null"
@@ -1030,6 +1051,12 @@
               "null"
             ]
           },
+          "shifts": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "teamAbbrev": {
             "type": [
               "string",
@@ -1114,6 +1141,42 @@
               "null"
             ]
           },
+          "gameWinningGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "plusMinus": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shootingPctg": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "shots": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "avgToi": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "faceoffWinningPctg": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
           "leagueAbbrev": {
             "type": [
               "string",
@@ -1133,6 +1196,12 @@
             ]
           },
           "powerPlayGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "powerPlayPoints": {
             "type": [
               "number",
               "null"
@@ -1162,6 +1231,12 @@
               "null"
             ]
           },
+          "otGoals": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
           "teamName": {
             "type": [
               "string",
@@ -1173,7 +1248,22 @@
                 "string",
                 "null"
               ]
-            }
+            },
+            "properties": {}
+          },
+          "teamPlaceNameWithPreposition": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "properties": {}
           },
           "teamCommonName": {
             "type": [
@@ -1186,6 +1276,55 @@
                 "string",
                 "null"
               ]
+            },
+            "properties": {}
+          },
+          "featuredStats": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "regularSeason": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": true,
+                "properties": {
+                  "subSeason": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ties": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  },
+                  "career": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ties": {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "gamesStarted": {
@@ -1263,6 +1402,76 @@
         },
         "additionalProperties": true
       }
+    },
+    "currentTeamRoster": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "playerId": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "lastName": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "properties": {}
+          },
+          "firstName": {
+            "type": [
+              "string",
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "properties": {}
+          },
+          "playerSlug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "additionalProperties": true
+    },
+    "awards": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {}
+      },
+      "additionalProperties": true
+    },
+    "player_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
     }
   }
 }
